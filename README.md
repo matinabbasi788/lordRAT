@@ -31,6 +31,27 @@ python3 main.py
 ```
 ------
 
+
+### Custom commands :
+- Exit :
+```
+exit
+```
+
+
+- Reading from the clipboard :
+
+```
+rclipboard
+```
+
+- Writing on the clipboard :
+```
+wclipboard [string(Note that you should not enter a new line)]
+```
+
+
+-------
 #### Screenshots :
 
 <p align="center">
@@ -53,7 +74,7 @@ python3 main.py
 
 - [ ] **Ability to create popup boxes .**
 
-- [ ] **R/W clipboard .**
+- [x] **R/W clipboard .**
 
 ------
 
