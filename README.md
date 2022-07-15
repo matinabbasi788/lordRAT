@@ -64,6 +64,14 @@ wclipboard [string(Note that you should not enter a new line)]
 
 ------
 
+### Dependencies :
+#### Libraries :
+- cryptography
+- clipboard
+- colorama
+
+------
+
 #### Upcoming update schedule 🌱 :
 
 - [ ] **Code optimization .**
@@ -76,6 +84,7 @@ wclipboard [string(Note that you should not enter a new line)]
 
 - [x] **R/W clipboard .**
 
+- [x] **Installer**
 ------
 
 > The use of the lordRAT(all versions) COMPLETE RESPONSIBILITY of the END-USER. Developers assume NO liability and are NOT responsible for any misuse or damage caused by this program.
