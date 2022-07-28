@@ -1,7 +1,7 @@
 from colorama import Fore
 from platform import system as OStype
 from os import system
-from tools import generator , launcher
+from tools import generator , launcher , updater
 def clear():
     if "windows" in OStype() :
         system("cls")
@@ -13,23 +13,25 @@ def main():
         selection=input(Fore.LIGHTYELLOW_EX+ r"""
 
                ⠀⠀⠀⠀ ⠀⠀⠀⠀⠀⠀⣀⣀⠀⠀⠀⠀⠀⠀⣀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-                ⠀⢠⣶⣶⣄⠀⠀⠀⠀⣾⣿⣿⣷⠀⠀⠀⠀⣾⣿⣿⣷⠀⠀⠀⠀⣰⣶⣶⡄⠀
-                ⠀⠸⣿⣿⠟⠀⠀⠀⠀⠘⢿⣿⠋⠀⠀⠀⠀⠘⢿⡿⠋⠀⠀⠀⠀⠻⣿⣿⠇⠀
-                ⠀⠀⠀⢸⣧⡀⠀⠀⠀⢀⣾⣿⣆⠀⠀⠀⠀⣰⣿⣷⡀⠀⠀⠀⢀⣼⠇⠀⠀⠀
-               ⠀ ⠀⠀⠀⣿⣿⣄⠀⢀⣾⣿⣿⣿⣧⠀⠀⣼⣿⣿⣿⣷⡀⠀⣠⣿⣿⠀⠀⠀⠀
-                ⠀⠀⠀⠀⣿⣿⠏⠀⠀⠙⣿⣿⣿⠁⠀⠀⠈⢿⣿⡿⠋⠀⠀⠹⣿⣿⠀⠀⠀⠀
-                ⠀⠀⠀⠀⢹⣿⡄⠀⠀⢀⣿⣿⣿⣄⠀⠀⣀⣾⣿⣷⡀⠀⠀⣠⣿⡇⠀⠀⠀⠀
-                ⠀⠀⠀⠀⠘⣿⣿⣷⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣿⣿⣿⠁⠀⠀⠀⠀
-                ⠀⠀⠀⠀⠀⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟⠀⠀⠀⠀⠀
-               ⠀⠀ ⠀⠀⠀⠸⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠇⠀⠀⠀⠀⠀
-                ⠀⠀⠀⠀⢠⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⡄⠀⠀⠀⠀
-    _________________⠙⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠋_________________
-   |                                                      |
-   |                                                      |
-   |  [ 1 ] Launcher                     [ 2 ] Generator  |
-   |                                                      |
-   |  [ 3 ] Developer information        [ 4 ] Exit       |
-   |______________________________________________________| 
+                   ⠀⢠⣶⣶⣄⠀⠀⠀⠀⣾⣿⣿⣷⠀⠀⠀⠀⣾⣿⣿⣷⠀⠀⠀⠀⣰⣶⣶⡄⠀
+                   ⠀⠸⣿⣿⠟⠀⠀⠀⠀⠘⢿⣿⠋⠀⠀⠀⠀⠘⢿⡿⠋⠀⠀⠀⠀⠻⣿⣿⠇⠀
+                   ⠀⠀⠀⢸⣧⡀⠀⠀⠀⢀⣾⣿⣆⠀⠀⠀⠀⣰⣿⣷⡀⠀⠀⠀⢀⣼⠇⠀⠀⠀
+                  ⠀ ⠀⠀⠀⣿⣿⣄⠀⢀⣾⣿⣿⣿⣧⠀⠀⣼⣿⣿⣿⣷⡀⠀⣠⣿⣿⠀⠀⠀⠀
+                ⠀⠀⠀   ⠀⣿⣿⠏⠀⠀⠙⣿⣿⣿⠁⠀⠀⠈⢿⣿⡿⠋⠀⠀⠹⣿⣿⠀⠀⠀⠀
+                   ⠀⠀⠀⠀⢹⣿⡄⠀⠀⢀⣿⣿⣿⣄⠀⠀⣀⣾⣿⣷⡀⠀⠀⣠⣿⡇⠀⠀⠀⠀
+                   ⠀⠀⠀⠀⠘⣿⣿⣷⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣿⣿⣿⠁⠀⠀⠀⠀
+                   ⠀⠀⠀⠀⠀⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟⠀⠀⠀⠀⠀
+                  ⠀⠀ ⠀⠀⠀⠸⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠇⠀⠀⠀⠀⠀
+                   ⠀⠀⠀⠀⢠⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⡄⠀⠀⠀⠀
+    _____________________⠙⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠋_____________________
+   |                                                                   |
+   |                                                                   |
+   |  [ 1 ] Launcher                     [ 2 ] Generator               |
+   |                                                                   |
+   |  [ 3 ] Developer information        [ 4 ] Check for updates       |
+   |                                                                   |
+   |  [ 5 ] Exit                                                       |
+   |___________________________________________________________________| 
     
 	
 Enter your selection : """)
@@ -56,8 +58,13 @@ Enter your selection : """)
     
     Enter to exit : """+Fore.RESET)
             elif selection=="4" : 
+                updater.mainUpdater()
+            elif selection=="5" : 
                 exit()
         except KeyboardInterrupt:
             pass
 if __name__ =="__main__":
-    main()
+    try:
+        main()
+    except KeyboardInterrupt :
+        exit()
