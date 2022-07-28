@@ -9,7 +9,7 @@ def mainUpdater():
         UPtDATE=False
     else :
         UPtDATE=True
-    if isfile("/usr/src/lordrat/VERSION.txt"):
+    if isfile("/usr/src/lordRAT/VERSION.txt"):
         if UPtDATE:
             input(f"{Fore.LIGHTGREEN_EX}Your version is up to date!\n\nEnter to continue : {Fore.RESET}")
             return
@@ -20,7 +20,7 @@ def mainUpdater():
         else :
             input(f"{Fore.LIGHTCYAN_EX}\n\nEnter to continue : {Fore.RESET}")
     else :
-        upErr=input(f"""{Fore.LIGHTRED_EX}Error: You did not install the tool! \nIf you are using Linux based systems, please install the tool with the tools/installer.sh file, or download the update manually.
+        upErr=input(f"""{Fore.LIGHTRED_EX}Error: You did not install the tool! \nIf you are using Linux based systems, please install the tool with the installer.sh file, or download the update manually.
     \nDo you want to check the version of your tool [y/n] ? {Fore.RESET}""").lower()
         if upErr=='y':
             if UPtDATE:
