@@ -92,7 +92,7 @@ sysinfo
 
 - [ ] **Ability to receive long messages .**
 
-- [ ] **The ability to receive infected system information .**
+- [x] **The ability to receive infected system information .**
 
 - [x] **Ability to create popup boxes .**
 
