@@ -49,13 +49,20 @@ rclipboard
 ```
 wclipboard [string(Note that you should not enter a new line)]
 ```
- - Create a pop-up window :
+ - Creating a pop-up window :
 ```
 popup alert "this is my text" "this is title"
 popup confr "this is my text" "this is title" "button1,button2,button3"
 popup qstion "this is my text" "this is title"
 popup passwd "this is my text" "this is title"
 ```
+
+- Getting details of the victim's system :
+```
+sysinfo
+```
+> Output :
+>System , Node Name , Release , Version , Machine , Processor
 
 
 -------

